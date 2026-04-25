@@ -47,6 +47,34 @@ p {
     padding: 20px;
     align-items: start;
 }
+/* 1. The entire scrollbar area */
+.main-frame::-webkit-scrollbar {
+    width: 12px;               /* Width of the vertical scrollbar */
+}
+
+/* 2. The background 'track' of the scrollbar */
+.main-frame::-webkit-scrollbar-track {
+    background: #000000;       /* Makes the track black */
+    border-radius: 0px;
+}
+
+/* 3. The actual 'grabber' or 'thumb' */
+.main-frame::-webkit-scrollbar-thumb {
+    background: #222222;       /* Dark grey so you can see it */
+    border: 2px solid #000000; /* Adds a black border around the thumb */
+    border-radius: 10px;       /* Makes it rounded */
+}
+
+/* 4. When you hover over the grabber */
+.main-frame::-webkit-scrollbar-thumb:hover {
+    background: #333333;       /* Becomes slightly lighter when you touch it */
+}
+
+/* For Firefox (different syntax) */
+.main-frame {
+    scrollbar-width: thin;
+    scrollbar-color: #222222 #000000;
+}
 
 /* LEFT SIDEBAR / MESSAGE BOARD STYLES */
 .left-sidebar {
