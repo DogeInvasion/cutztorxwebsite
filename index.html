@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.supabase.co https://cdn.jsdelivr.net https://free.timeanddate.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co;">
-    <title>Centered Responsive Layout</title>
     
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.supabase.co https://cdn.jsdelivr.net https://free.timeanddate.com https://www.youtube.com https://*.youtube.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; frame-src 'self' https://www.youtube.com https://*.youtube.com https://free.timeanddate.com;">
+    
+    <title>Centered Responsive Layout</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="stylesheet" href="style999.css">
 </head>
@@ -42,13 +43,20 @@
         
         <section class="center-content">
             <h1>Welcome to My Site</h1>
-            <p>This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable.</p>
+            <p>This area is fully editable. (Content repeated...)</p>
             <img src="https://via.placeholder.com/600x300" alt="Sample" style="width:100%; border-radius: 8px; margin: 10px 0;">
         </section>
 
         <aside class="right-sidebar">
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </aside>
     </div>
@@ -65,13 +73,12 @@
 </main>
 
 <script>
+    // Supabase logic remains the same...
     const SB_URL = "https://vumkbcjohulelevjnjcv.supabase.co";
     const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ1bWtiY2pvaHVsZWxldmpuamN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwODE4MzEsImV4cCI6MjA5MjY1NzgzMX0.5IRyfO6F9itXpfCJuROJUqPzMUejOacydYUTRQHA6-o";
     const db = supabase.createClient(SB_URL, SB_KEY);
-
     const emojiMap = { ':smile:': 'smile.png', ':wowzers:': 'wowzers.png', ':cool:': 'cool.png' };
     let currentParentId = null;
-
     function parseContent(text) {
         let html = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
         for (const [code, url] of Object.entries(emojiMap)) {
@@ -80,22 +87,9 @@
         }
         return html;
     }
-
-    function addEmoji(code) {
-        document.getElementById('mainInput').value += code + " ";
-        document.getElementById('mainInput').focus();
-    }
-
-    function setReply(id) {
-        currentParentId = id;
-        document.getElementById('replyIndicator').style.display = 'block';
-    }
-
-    function cancelReply() {
-        currentParentId = null;
-        document.getElementById('replyIndicator').style.display = 'none';
-    }
-
+    function addEmoji(code) { document.getElementById('mainInput').value += code + " "; document.getElementById('mainInput').focus(); }
+    function setReply(id) { currentParentId = id; document.getElementById('replyIndicator').style.display = 'block'; }
+    function cancelReply() { currentParentId = null; document.getElementById('replyIndicator').style.display = 'none'; }
     async function submitMessage() {
         const text = document.getElementById('mainInput').value.trim();
         if(!text) return;
@@ -103,7 +97,6 @@
         if(error) alert("Error: " + error.message);
         else { document.getElementById('mainInput').value = ''; cancelReply(); loadBoard(); }
     }
-
     async function loadBoard() {
         const { data, error } = await db.from('messages').select('*').order('created_at', { ascending: false });
         if(error) return;
@@ -117,7 +110,6 @@
             </div>
         `).join('');
     }
-
     db.channel('realtime-messages').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, () => loadBoard()).subscribe();
     loadBoard();
 </script>
