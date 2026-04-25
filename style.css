@@ -1,8 +1,6 @@
-/* Base & Background */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
+/* BACKGROUND & LAYOUT */
 body {
-    background-image: url('star.jpg'); /* Ensure star.jpg is in your folder */
+    background-image: url('star.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
     font-family: 'Courier New', monospace;
@@ -10,10 +8,9 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    margin: 0;
 }
 
-/* Main Frame */
 .main-frame {
     background: rgba(255, 255, 255, 0.95);
     width: 100%;
@@ -29,7 +26,6 @@ body {
 
 .banner img { width: 100%; height: auto; display: block; border-radius: 12px 12px 0 0; }
 
-/* Grid Layout */
 .content-wrapper {
     display: grid;
     grid-template-columns: 320px 1fr 320px;
@@ -38,57 +34,40 @@ body {
     align-items: start;
 }
 
-/* Sidebar & Message Board Styles */
-.left-sidebar, .right-sidebar {
-    background: #1e1e1e; /* Dark theme for contrast */
-    color: white;
+/* LEFT SIDEBAR / MESSAGE BOARD STYLES */
+.left-sidebar {
+    background: #121212;
+    color: #ffffff;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: left;
 }
 
-/* Message Board Specifics */
-textarea { 
-    width: 100%; height: 60px; background: #252525; border: 1px solid #444; 
-    color: white; padding: 8px; border-radius: 5px; resize: none; margin-top: 10px;
-}
-#postBtn { 
-    width: 100%; padding: 10px; background: #3d5afe; color: white; 
-    border: none; border-radius: 5px; cursor: pointer; margin-top: 5px;
-}
-.msg { 
-    background: #2a2a2a; padding: 10px; border-radius: 5px; 
-    margin-top: 10px; font-size: 0.9em; border-left: 3px solid #3d5afe; 
-}
-.reply-tag { color: #3d5afe; cursor: pointer; font-size: 0.8em; float: right; }
+.input-box { background: #1e1e1e; padding: 10px; border-radius: 8px; border: 1px solid #333; margin-top: 10px; }
+textarea { width: 100%; height: 60px; background: #252525; border: 1px solid #444; color: white; padding: 8px; border-radius: 5px; resize: none; box-sizing: border-box; }
+#postBtn { width: 100%; padding: 10px; background: #3d5afe; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 5px; font-weight: bold; }
+
+.emoji-bar { margin: 5px 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.emoji-btn { background: #333; border: none; padding: 4px; border-radius: 4px; cursor: pointer; }
+.emoji-btn img { width: 18px; height: 18px; }
+
+.msg { background: #1e1e1e; padding: 12px; border-radius: 8px; margin-top: 10px; border-left: 4px solid #3d5afe; position: relative; }
+.msg-content { font-size: 0.95em; line-height: 1.4; }
+.msg-footer { margin-top: 8px; font-size: 0.7em; color: #b0b0b0; display: flex; justify-content: space-between; }
+.reply-tag { color: #3d5afe; cursor: pointer; font-weight: bold; }
 .custom-emoji { width: 20px; vertical-align: middle; }
+.replying-to-indicator { font-size: 0.8em; color: #3d5afe; margin-bottom: 5px; display: none; }
 
-/* Animations */
-.floaty {
-    display: inline-block;
-    animation: floatUpDown 2.5s ease-in-out infinite;
-}
+/* ANIMATION */
+.floaty { display: inline-block; animation: floatUpDown 2.5s ease-in-out infinite; }
+@keyframes floatUpDown { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
-@keyframes floatUpDown {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-}
-
-/* Global Elements */
-.center-content { padding: 0 10px; }
+/* GLOBAL ELEMENTS */
+.right-sidebar { background: #f0f0f0; padding: 10px; border-radius: 8px; }
 .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 4px; }
+.bottom-section { padding: 30px; background: #f9f9f9; }
+.site-footer { padding: 15px; background: #000; color: #666; font-size: 0.8em; margin-top: auto; }
 
-.site-footer {
-    padding: 15px;
-    background: #000;
-    color: #666;
-    font-size: 0.8em;
-    margin-top: auto;
-}
-
-/* Mobile */
-@media (max-width: 1100px) {
-    .content-wrapper { grid-template-columns: 1fr; }
-    .main-frame { height: 95vh; }
-}
+/* MOBILE */
+@media (max-width: 1100px) { .content-wrapper { grid-template-columns: 1fr; } .main-frame { height: 95vh; } }
