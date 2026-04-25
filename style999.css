@@ -72,9 +72,19 @@ textarea { width: 100%; height: 60px; background: #252525; border: 1px solid #44
 .custom-emoji { width: 20px; vertical-align: middle; }
 .replying-to-indicator { font-size: 0.8em; color: #3d5afe; margin-bottom: 5px; display: none; }
 
-/* ANIMATION */
-.floaty { display: inline-block; animation: floatUpDown 2.5s ease-in-out infinite; }
-@keyframes floatUpDown { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+.floaty { 
+    display: block;            /* Changed from inline-block to block */
+    margin-left: auto;         /* Centers the block */
+    margin-right: auto;        /* Centers the block */
+    width: fit-content;        /* Ensures the background/border only fits the text */
+    text-align: center;
+    animation: floatUpDown 2.5s ease-in-out infinite; 
+}
+
+@keyframes floatUpDown { 
+    0%, 100% { transform: translateY(0); } 
+    50% { transform: translateY(10px); } 
+}
 
 /* GLOBAL ELEMENTS */
 .right-sidebar { background: #f0f0f0; padding: 10px; border-radius: 8px; }
