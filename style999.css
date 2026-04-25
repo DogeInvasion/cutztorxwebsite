@@ -4,6 +4,20 @@ body {
     background-repeat: repeat;
     background-attachment: fixed;
     font-family: 'Courier New', monospace;
+    /* This changes all <h1> headers to a specific color */
+h1 {
+    color: #fff; /* A nice blue to match your buttons */
+}
+
+/* This changes all <h2> headers */
+h2 {
+    color: #fff;
+}
+
+/* This changes all paragraph text */
+p {
+    color: #fff;
+}
     display: flex;
     justify-content: center;
     align-items: center;
