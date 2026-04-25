@@ -1,40 +1,94 @@
-/* Background path is RELATIVE to THIS FILE.
-   Keep lined.gif next to style.css, or change the path. */
-html, body {
-  height: 100%;
-}
+/* Base & Background */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
-  font-family: 'Courier New', monospace; /* âœ… replaced font */
-  color: #000;
-  background-image: url('star.jpg');
-  background-repeat: repeat;
+    background-image: url('star.jpg'); /* Ensure star.jpg is in your folder */
+    background-repeat: repeat;
+    background-attachment: fixed;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* Creates a 10px inset border around the viewport, and centers content */
-.viewport-pad {
-  position: fixed;
-  inset: 10px;                 /* top/right/bottom/left = 10px (=> 20px smaller total) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Main Frame */
+.main-frame {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 1300px;
+    height: 90vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
-/* The image will never overflow; perfectly centered */
-.fit {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.banner img { width: 100%; height: auto; display: block; border-radius: 12px 12px 0 0; }
+
+/* Grid Layout */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 320px 1fr 320px;
+    gap: 15px;
+    padding: 20px;
+    align-items: start;
 }
+
+/* Sidebar & Message Board Styles */
+.left-sidebar, .right-sidebar {
+    background: #1e1e1e; /* Dark theme for contrast */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+/* Message Board Specifics */
+textarea { 
+    width: 100%; height: 60px; background: #252525; border: 1px solid #444; 
+    color: white; padding: 8px; border-radius: 5px; resize: none; margin-top: 10px;
+}
+#postBtn { 
+    width: 100%; padding: 10px; background: #3d5afe; color: white; 
+    border: none; border-radius: 5px; cursor: pointer; margin-top: 5px;
+}
+.msg { 
+    background: #2a2a2a; padding: 10px; border-radius: 5px; 
+    margin-top: 10px; font-size: 0.9em; border-left: 3px solid #3d5afe; 
+}
+.reply-tag { color: #3d5afe; cursor: pointer; font-size: 0.8em; float: right; }
+.custom-emoji { width: 20px; vertical-align: middle; }
+
+/* Animations */
 .floaty {
-  display: inline-block; /* ðŸ”¥ REQUIRED */
-  animation: floatUpDown 2.5s ease-in-out infinite;
+    display: inline-block;
+    animation: floatUpDown 2.5s ease-in-out infinite;
 }
 
 @keyframes floatUpDown {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(10px); }
-  100% { transform: translateY(0); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* Global Elements */
+.center-content { padding: 0 10px; }
+.video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.site-footer {
+    padding: 15px;
+    background: #000;
+    color: #666;
+    font-size: 0.8em;
+    margin-top: auto;
+}
+
+/* Mobile */
+@media (max-width: 1100px) {
+    .content-wrapper { grid-template-columns: 1fr; }
+    .main-frame { height: 95vh; }
 }
