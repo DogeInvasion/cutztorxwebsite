@@ -4,212 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.supabase.co https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co;">
-    
-    <title>Global Message Board</title>
-    
+    <title>Centered Responsive Layout</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <style>
-        :root {
-            --bg: #121212;
-            --card: #1e1e1e;
-            --accent: #3d5afe;
-            --text: #ffffff;
-            --dim-text: #b0b0b0;
-        }
-
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: var(--text); padding: 20px; display: flex; justify-content: center; }
-        .container { width: 100%; max-width: 500px; }
-        
-        /* Input Area */
-        .input-box { background: var(--card); padding: 15px; border-radius: 12px; border: 1px solid #333; margin-bottom: 20px; }
-        textarea { width: 100%; height: 80px; background: #252525; border: 1px solid #444; color: white; padding: 10px; border-radius: 8px; box-sizing: border-box; resize: none; }
-        button { width: 100%; padding: 12px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; font-weight: bold; transition: 0.2s; }
-        button:hover { background: #2a41d6; }
-
-        /* Emoji Bar */
-        .emoji-bar { margin: 10px 0; display: flex; gap: 8px; }
-        .emoji-btn { background: #333; border: none; padding: 5px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; }
-        .emoji-btn img { width: 20px; height: 20px; }
-
-        /* Message Display */
-        .msg { background: var(--card); padding: 15px; border-radius: 10px; margin-top: 15px; border-left: 4px solid var(--accent); position: relative; animation: slideIn 0.3s ease-out; }
-        .msg-content { font-size: 1.1em; line-height: 1.4; }
-        .msg-footer { margin-top: 10px; font-size: 0.75em; color: var(--dim-text); display: flex; justify-content: space-between; }
-        .custom-emoji { width: 22px; height: 22px; vertical-align: middle; margin: 0 2px; }
-        
-        .reply-tag { color: var(--accent); cursor: pointer; font-weight: bold; }
-        .replying-to-indicator { font-size: 0.8em; color: var(--accent); margin-bottom: 5px; display: none; }
-
-        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    <link rel="stylesheet" href="style999.css">
 </head>
 <body>
 
-<div class="container">
-    <h2>Message Board</h2>
-    
-    <div class="input-box">
-        <div id="replyIndicator" class="replying-to-indicator">Replying to message... <span onclick="cancelReply()" style="color:red; cursor:pointer;">[Cancel]</span></div>
-        <textarea id="mainInput" placeholder="Write a message or reply..."></textarea>
-        
-        <div class="emoji-bar">
-            <button class="emoji-btn" onclick="addEmoji(':smile:')">
-                <img src="smile.png" alt="smile">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':wowzers:')">
-                <img src="wowzers.png" alt="wowzers">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':cool:')">
-                <img src="cool.png" alt="cool">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':catface:')">
-                <img src="catface.png" alt="catface">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':wink:')">
-                <img src="wink.png" alt="wink">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':crying:')">
-                <img src="crying.png" alt="crying">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':shocked:')">
-                <img src="shocked.png" alt="shocked">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':mad:')">
-                <img src="mad.png" alt="mad">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':sleep:')">
-                <img src="sleep.png" alt="sleep">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':bigeyes:')">
-                <img src="bigeyes.png" alt="bigeyes">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':tongue:')">
-                <img src="tongue.png" alt="tongue">
-            </button>
-            <button class="emoji-btn" onclick="addEmoji(':nerd:')">
-                <img src="nerd.png" alt="nerd">
-            </button>
+    <main class="main-frame">
+        <header class="banner">
+            <img src="https://michael-murder.neocities.org/website-banner.png" alt="Banner Image">
+        </header>
+
+        <div class="content-wrapper">
+            
+            <aside class="left-sidebar">
+                <div class="message-board-container">
+                    <h2 class="floaty">Message Board</h2>
+                    <div class="input-box">
+                        <div id="replyIndicator" class="replying-to-indicator">Replying... <span onclick="cancelReply()" style="color:red; cursor:pointer;">[X]</span></div>
+                        <textarea id="mainInput" placeholder="Write a message..."></textarea>
+                        
+                        <div class="emoji-bar">
+                            <button class="emoji-btn" onclick="addEmoji(':smile:')"><img src="smile.png" alt=":)"></button>
+                            <button class="emoji-btn" onclick="addEmoji(':cool:')"><img src="cool.png" alt="B)"></button>
+                            <button class="emoji-btn" onclick="addEmoji(':catface:')"><img src="catface.png" alt="cat"></button>
+                        </div>
+                        <button id="postBtn" onclick="submitMessage()">Post</button>
+                    </div>
+                    <div id="board">Loading...</div>
+                </div>
+            </aside>
+            
+            <section class="center-content">
+                <h1>Welcome to My Site</h1>
+                <p>This area is fully editable. Add your text and images here!</p>
+                <img src="https://via.placeholder.com/600x400" alt="Sample" style="width:100%; border-radius: 8px;">
+            </section>
+
+            <aside class="right-sidebar">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </aside>
         </div>
 
-        <button id="postBtn" onclick="submitMessage()">Post Message</button>
-    </div>
+        <section class="bottom-section">
+            <hr>
+            <h2>Additional Info</h2>
+            <p>Bottom section content goes here.</p>
+        </section>
 
-    <div id="board">Loading messages...</div>
-</div>
+        <footer class="site-footer">
+            Coded With LAZYNESS • 2024-2026 © cutztorx • Brought to you by Neocities
+        </footer>
+    </main>
 
-<script>
-    // 1. CONFIGURATION - PASTE YOUR DETAILS HERE
-    const SB_URL = "https://vumkbcjohulelevjnjcv.supabase.co";
-    const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ1bWtiY2pvaHVsZWxldmpuamN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwODE4MzEsImV4cCI6MjA5MjY1NzgzMX0.5IRyfO6F9itXpfCJuROJUqPzMUejOacydYUTRQHA6-o";
-    const db = supabase.createClient(SB_URL, SB_KEY);
+    <script>
+        const SB_URL = "https://vumkbcjohulelevjnjcv.supabase.co";
+        const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ1bWtiY2pvaHVsZWxldmpuamN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwODE4MzEsImV4cCI6MjA5MjY1NzgzMX0.5IRyfO6F9itXpfCJuROJUqPzMUejOacydYUTRQHA6-o";
+        const db = supabase.createClient(SB_URL, SB_KEY);
 
-    // 2. CUSTOM EMOJI MAP
-    const emojiMap = {
-        ':smile:': 'smile.png',
-        ':wowzers:': 'wowzers.png',
-        ':cool:': 'cool.png',
-        ':catface:': 'catface.png',
-        ':wink:': 'wink.png',
-        ':crying:': 'crying.png',
-        ':shocked:': 'shocked.png',
-        ':mad:': 'mad.png',
-        ':sleep:': 'sleep.png',
-        ':bigeyes:': 'bigeyes.png',
-        ':tongue:': 'tongue.png',
-        'nerd': 'nerd.png'
-    };
+        const emojiMap = { ':smile:': 'smile.png', ':cool:': 'cool.png', ':catface:': 'catface.png' };
+        let currentParentId = null;
 
-    let currentParentId = null; // Tracks if we are replying to someone
-
-    // --- LOGIC FUNCTIONS ---
-
-    // Replace :text: with <img> tags
-    function parseContent(text) {
-        let html = text.replace(/</g, "&lt;").replace(/>/g, "&gt;"); // Simple security
-        for (const [code, url] of Object.entries(emojiMap)) {
-            const regex = new RegExp(code, 'g');
-            html = html.replace(regex, `<img src="${url}" class="custom-emoji">`);
-        }
-        return html;
-    }
-
-    function addEmoji(code) {
-        document.getElementById('mainInput').value += code + " ";
-        document.getElementById('mainInput').focus();
-    }
-
-    function setReply(id) {
-        currentParentId = id;
-        document.getElementById('replyIndicator').style.display = 'block';
-        document.getElementById('mainInput').placeholder = "Writing a reply...";
-        document.getElementById('mainInput').focus();
-    }
-
-    function cancelReply() {
-        currentParentId = null;
-        document.getElementById('replyIndicator').style.display = 'none';
-        document.getElementById('mainInput').placeholder = "What's happening?";
-    }
-
-    // --- DATABASE ACTIONS ---
-
-    async function submitMessage() {
-        const text = document.getElementById('mainInput').value.trim();
-        if(!text) return;
-
-        const { error } = await db.from('messages').insert([{ 
-            content: text,
-            parent_id: currentParentId 
-        }]);
-
-        if(error) {
-            alert("Error: " + error.message);
-        } else {
-            document.getElementById('mainInput').value = '';
-            cancelReply();
-            loadBoard();
-        }
-    }
-
-    async function loadBoard() {
-        const { data, error } = await db
-            .from('messages')
-            .select('*')
-            .order('created_at', { ascending: false });
-
-        if(error) {
-            document.getElementById('board').innerHTML = "Error loading messages.";
-            return;
+        function parseContent(text) {
+            let html = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            for (const [code, url] of Object.entries(emojiMap)) {
+                const regex = new RegExp(code, 'g');
+                html = html.replace(regex, `<img src="${url}" class="custom-emoji">`);
+            }
+            return html;
         }
 
-        const board = document.getElementById('board');
-        board.innerHTML = data.map(m => {
-            const time = new Date(m.created_at).toLocaleString();
-            // If it has a parent_id, add a small visual label
-            const typeLabel = m.parent_id ? `<span style="color:#3d5afe">[REPLY]</span> ` : "";
-            
-            return `
-                <div class="msg" id="msg-${m.id}">
-                    <div class="msg-content">${typeLabel}${parseContent(m.content)}</div>
+        function addEmoji(code) {
+            document.getElementById('mainInput').value += code + " ";
+            document.getElementById('mainInput').focus();
+        }
+
+        function setReply(id) {
+            currentParentId = id;
+            document.getElementById('replyIndicator').style.display = 'block';
+            document.getElementById('mainInput').focus();
+        }
+
+        function cancelReply() {
+            currentParentId = null;
+            document.getElementById('replyIndicator').style.display = 'none';
+        }
+
+        async function submitMessage() {
+            const text = document.getElementById('mainInput').value.trim();
+            if(!text) return;
+            const { error } = await db.from('messages').insert([{ content: text, parent_id: currentParentId }]);
+            if(error) alert("Error: " + error.message);
+            else { document.getElementById('mainInput').value = ''; cancelReply(); loadBoard(); }
+        }
+
+        async function loadBoard() {
+            const { data, error } = await db.from('messages').select('*').order('created_at', { ascending: false });
+            if(error) { document.getElementById('board').innerHTML = "Load Error"; return; }
+            document.getElementById('board').innerHTML = data.map(m => `
+                <div class="msg">
+                    <div class="msg-content">${m.parent_id ? '[REPLY] ' : ''}${parseContent(m.content)}</div>
                     <div class="msg-footer">
-                        <span>${time}</span>
+                        <span>${new Date(m.created_at).toLocaleTimeString()}</span>
                         <span class="reply-tag" onclick="setReply(${m.id})">Reply</span>
                     </div>
                 </div>
-            `;
-        }).join('');
-    }
+            `).join('');
+        }
 
-    // REALTIME UPDATES: This listens for new rows in Supabase and refreshes automatically
-    db.channel('realtime-messages')
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, () => {
+        db.channel('realtime-messages').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, () => loadBoard()).subscribe();
         loadBoard();
-    }).subscribe();
-
-    // Initial load when page opens
-    loadBoard();
-</script>
-
+    </script>
 </body>
 </html>
