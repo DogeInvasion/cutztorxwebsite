@@ -3,144 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.supabase.co https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.supabase.co https://cdn.jsdelivr.net https://free.timeanddate.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co;">
     <title>Centered Responsive Layout</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="stylesheet" href="style999.css">
 </head>
 <body>
 
-    <main class="main-frame">
-        <header class="banner">
-            <img src="https://michael-murder.neocities.org/website-banner.png" alt="Banner Image">
-        </header>
+<main class="main-frame">
+    <header class="banner">
+        <img src="https://michael-murder.neocities.org/website-banner.png" alt="Banner Image">
+    </header>
 
-        <div class="content-wrapper">
-            
-            <aside class="left-sidebar">
-                <div class="container">
-                    <h2 class="floaty">Message Board</h2>
-                    <div class="input-box">
-                        <div id="replyIndicator" class="replying-to-indicator">Replying... <span onclick="cancelReply()" style="color:red; cursor:pointer;">[Cancel]</span></div>
-                        <textarea id="mainInput" placeholder="Write a message or reply..."></textarea>
-                        
-                        <div class="emoji-bar">
-                            <button class="emoji-btn" onclick="addEmoji(':smile:')"><img src="smile.png" alt="smile"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':wowzers:')"><img src="wowzers.png" alt="wowzers"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':cool:')"><img src="cool.png" alt="cool"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':catface:')"><img src="catface.png" alt="catface"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':wink:')"><img src="wink.png" alt="wink"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':crying:')"><img src="crying.png" alt="crying"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':shocked:')"><img src="shocked.png" alt="shocked"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':mad:')"><img src="mad.png" alt="mad"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':sleep:')"><img src="sleep.png" alt="sleep"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':bigeyes:')"><img src="bigeyes.png" alt="bigeyes"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':tongue:')"><img src="tongue.png" alt="tongue"></button>
-                            <button class="emoji-btn" onclick="addEmoji(':nerd:')"><img src="nerd.png" alt="nerd"></button>
-                        </div>
-                        <button id="postBtn" onclick="submitMessage()">Post Message</button>
+    <div class="content-wrapper">
+        <aside class="left-sidebar">
+            <div class="widgets" style="text-align: center; margin-bottom: 20px;">
+                <h3>Time & Date</h3>
+                <iframe src="https://free.timeanddate.com/clock/iad1fefg/n262/szw110/szh110/hoc000/hbw4/cf100/hgr0/hcw2/fan2/fdi74/mqc000/mqs3/mql13/mqw2/mhc000/mhs3/mhl10/mhw2/mhd96/mmc000/mms3/mml5/mmw2/mmd96/hwm2/hhs2/hhw8/hms2/hmw8/hmr4/hsc000/hss3/hsl90" frameborder="0" width="110" height="110"></iframe><br>
+                <iframe src="https://free.timeanddate.com/clock/iad1fkgd/n262/fn10/fs15/fcfff/tc000/pc000/ftu/pa0/tt0/tw0/tm2/td2/ts1" frameborder="0" width="163" height="17"></iframe>
+            </div>
+
+            <div class="container">
+                <h2 class="floaty">Message Board</h2>
+                <div class="input-box">
+                    <div id="replyIndicator" class="replying-to-indicator">Replying... <span onclick="cancelReply()" style="color:red; cursor:pointer;">[X]</span></div>
+                    <textarea id="mainInput" placeholder="Write a message..."></textarea>
+                    <div class="emoji-bar">
+                        <button class="emoji-btn" onclick="addEmoji(':smile:')"><img src="smile.png" alt=":)"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':wowzers:')"><img src="wowzers.png" alt="wow"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':cool:')"><img src="cool.png" alt="B)"></button>
                     </div>
-                    <div id="board">Loading messages...</div>
+                    <button id="postBtn" onclick="submitMessage()">Post Message</button>
                 </div>
-            </aside>
-            
-            <section class="center-content">
-                <h1>Welcome to My Site</h1>
-                <p>This area is fully editable.</p>
-                <img src="https://via.placeholder.com/600x400" alt="Content Image" style="width:100%; border-radius: 8px;">
-            </section>
-
-            <aside class="right-sidebar">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </aside>
-
-        </div>
-
-        <section class="bottom-section">
-            <hr>
-            <h2>Bottom Section</h2>
-            <p>Content for the bottom section goes here.</p>
+                <div id="board">Loading messages...</div>
+            </div>
+        </aside>
+        
+        <section class="center-content">
+            <h1>Welcome to My Site</h1>
+            <p>This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable. This area is fully editable.</p>
+            <img src="https://via.placeholder.com/600x300" alt="Sample" style="width:100%; border-radius: 8px; margin: 10px 0;">
         </section>
 
-        <footer class="site-footer">
-            Coded With LAZYNESS • 2024-2026 © cutztorx • Brought to you by Neocities
-        </footer>
-    </main>
+        <aside class="right-sidebar">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </aside>
+    </div>
 
-    <script>
-        const SB_URL = "https://vumkbcjohulelevjnjcv.supabase.co";
-        const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ1bWtiY2pvaHVsZWxldmpuamN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwODE4MzEsImV4cCI6MjA5MjY1NzgzMX0.5IRyfO6F9itXpfCJuROJUqPzMUejOacydYUTRQHA6-o";
-        const db = supabase.createClient(SB_URL, SB_KEY);
+    <section class="bottom-section">
+        <hr>
+        <h2>Bottom Section</h2>
+        <p>This is the extra area you wanted at the bottom of the scrolling frame.</p>
+    </section>
 
-        const emojiMap = {
-            ':smile:': 'smile.png', ':wowzers:': 'wowzers.png', ':cool:': 'cool.png',
-            ':catface:': 'catface.png', ':wink:': 'wink.png', ':crying:': 'crying.png',
-            ':shocked:': 'shocked.png', ':mad:': 'mad.png', ':sleep:': 'sleep.png',
-            ':bigeyes:': 'bigeyes.png', ':tongue:': 'tongue.png', ':nerd:': 'nerd.png'
-        };
+    <footer class="site-footer">
+        Coded With LAZYNESS • 2024-2026 © cutztorx • Brought to you by Neocities
+    </footer>
+</main>
 
-        let currentParentId = null;
+<script>
+    const SB_URL = "https://vumkbcjohulelevjnjcv.supabase.co";
+    const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ1bWtiY2pvaHVsZWxldmpuamN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcwODE4MzEsImV4cCI6MjA5MjY1NzgzMX0.5IRyfO6F9itXpfCJuROJUqPzMUejOacydYUTRQHA6-o";
+    const db = supabase.createClient(SB_URL, SB_KEY);
 
-        function parseContent(text) {
-            let html = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-            for (const [code, url] of Object.entries(emojiMap)) {
-                const regex = new RegExp(code, 'g');
-                html = html.replace(regex, `<img src="${url}" class="custom-emoji">`);
-            }
-            return html;
+    const emojiMap = { ':smile:': 'smile.png', ':wowzers:': 'wowzers.png', ':cool:': 'cool.png' };
+    let currentParentId = null;
+
+    function parseContent(text) {
+        let html = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        for (const [code, url] of Object.entries(emojiMap)) {
+            const regex = new RegExp(code, 'g');
+            html = html.replace(regex, `<img src="${url}" class="custom-emoji">`);
         }
+        return html;
+    }
 
-        function addEmoji(code) {
-            document.getElementById('mainInput').value += code + " ";
-            document.getElementById('mainInput').focus();
-        }
+    function addEmoji(code) {
+        document.getElementById('mainInput').value += code + " ";
+        document.getElementById('mainInput').focus();
+    }
 
-        function setReply(id) {
-            currentParentId = id;
-            document.getElementById('replyIndicator').style.display = 'block';
-            document.getElementById('mainInput').placeholder = "Writing a reply...";
-            document.getElementById('mainInput').focus();
-        }
+    function setReply(id) {
+        currentParentId = id;
+        document.getElementById('replyIndicator').style.display = 'block';
+    }
 
-        function cancelReply() {
-            currentParentId = null;
-            document.getElementById('replyIndicator').style.display = 'none';
-            document.getElementById('mainInput').placeholder = "Write a message or reply...";
-        }
+    function cancelReply() {
+        currentParentId = null;
+        document.getElementById('replyIndicator').style.display = 'none';
+    }
 
-        async function submitMessage() {
-            const text = document.getElementById('mainInput').value.trim();
-            if(!text) return;
-            const { error } = await db.from('messages').insert([{ content: text, parent_id: currentParentId }]);
-            if(error) alert("Error: " + error.message);
-            else {
-                document.getElementById('mainInput').value = '';
-                cancelReply();
-                loadBoard();
-            }
-        }
+    async function submitMessage() {
+        const text = document.getElementById('mainInput').value.trim();
+        if(!text) return;
+        const { error } = await db.from('messages').insert([{ content: text, parent_id: currentParentId }]);
+        if(error) alert("Error: " + error.message);
+        else { document.getElementById('mainInput').value = ''; cancelReply(); loadBoard(); }
+    }
 
-        async function loadBoard() {
-            const { data, error } = await db.from('messages').select('*').order('created_at', { ascending: false });
-            if(error) { document.getElementById('board').innerHTML = "Error loading messages."; return; }
-            document.getElementById('board').innerHTML = data.map(m => {
-                const time = new Date(m.created_at).toLocaleString();
-                return `
-                    <div class="msg" id="msg-${m.id}">
-                        <div class="msg-content">${m.parent_id ? '<span style="color:#3d5afe">[REPLY]</span> ' : ''}${parseContent(m.content)}</div>
-                        <div class="msg-footer">
-                            <span>${time}</span>
-                            <span class="reply-tag" onclick="setReply(${m.id})">Reply</span>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
+    async function loadBoard() {
+        const { data, error } = await db.from('messages').select('*').order('created_at', { ascending: false });
+        if(error) return;
+        document.getElementById('board').innerHTML = data.map(m => `
+            <div class="msg">
+                <div class="msg-content">${m.parent_id ? '[REPLY] ' : ''}${parseContent(m.content)}</div>
+                <div class="msg-footer">
+                    <span>${new Date(m.created_at).toLocaleTimeString()}</span>
+                    <span class="reply-tag" onclick="setReply(${m.id})">Reply</span>
+                </div>
+            </div>
+        `).join('');
+    }
 
-        db.channel('realtime-messages').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, () => loadBoard()).subscribe();
-        loadBoard();
-    </script>
+    db.channel('realtime-messages').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, () => loadBoard()).subscribe();
+    loadBoard();
+</script>
+
 </body>
 </html>
