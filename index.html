@@ -6,7 +6,40 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.supabase.co https://cdn.jsdelivr.net https://free.timeanddate.com https://www.youtube.com https://*.youtube.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co; frame-src 'self' https://www.youtube.com https://*.youtube.com https://free.timeanddate.com;">
     <title>wip shit xdxd</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <link rel="stylesheet" href="style999.css">
+        <style>
+    /* Optional: Removes any default border around the link */
+        .image-link {
+            border: none;
+            outline: none;
+            display: inline-block;
+        }
+        
+        .image-link img {
+            display: block;
+            border: none;
+        }
+      /* Optional: Makes the viewer a decent size */
+model-viewer {
+  /* 1. Control the size here (Lower this % to make it smaller) */
+  width: 30%; 
+  
+  /* 2. Keeps it from getting huge on big monitors */
+  max-width: 300px; 
+
+  /* 3. Your specific ratio */
+  aspect-ratio: 0.7 / 1; 
+
+  /* 4. Required for aspect-ratio to work */
+  height: auto; 
+
+  /* Background settings */
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
+}
+    </style>
 </head>
 <body>
 
@@ -49,6 +82,13 @@
             <h1>cutztorx's AWESOME WEBSITE!</h1>
             <p>About me, my name is bruce thats it ok bye fart piss</p>
             <img src="https://via.placeholder.com/600x300" alt="Sample" style="width:100%; border-radius: 8px; margin: 10px 0;">
+                <model-viewer 
+      src="cutztorx.glb" 
+      alt="A 3D model of cutztorx"
+      camera-controls 
+      auto-rotate 
+      shadow-intensity="1">
+    </model-viewer>
         </section>
 
         <aside class="right-sidebar">
