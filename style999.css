@@ -50,7 +50,7 @@ p {
 
 /* LEFT SIDEBAR / MESSAGE BOARD STYLES */
 .left-sidebar {
-    background: #121212;
+    background: rgba(0, 0, 0, 0.95);
     color: #ffffff;
     padding: 15px;
     border-radius: 12px;
@@ -80,7 +80,7 @@ textarea { width: 100%; height: 60px; background: #252525; border: 1px solid #44
 .right-sidebar { background: #f0f0f0; padding: 10px; border-radius: 8px; }
 .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
 .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 4px; }
-.bottom-section { padding: 30px; background: #f9f9f9; }
+.bottom-section { padding: 30px; background: rgba(0, 0, 0, 0.95); }
 .site-footer { padding: 15px; background: #000; color: #666; font-size: 0.8em; margin-top: auto; }
 
 /* MOBILE */
