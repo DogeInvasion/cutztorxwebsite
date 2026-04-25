@@ -1,0 +1,40 @@
+/* Background path is RELATIVE to THIS FILE.
+   Keep lined.gif next to style.css, or change the path. */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace; /* âœ… replaced font */
+  color: #000;
+  background-image: url('star.jpg');
+  background-repeat: repeat;
+}
+
+/* Creates a 10px inset border around the viewport, and centers content */
+.viewport-pad {
+  position: fixed;
+  inset: 10px;                 /* top/right/bottom/left = 10px (=> 20px smaller total) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The image will never overflow; perfectly centered */
+.fit {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.floaty {
+  display: inline-block; /* ðŸ”¥ REQUIRED */
+  animation: floatUpDown 2.5s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
