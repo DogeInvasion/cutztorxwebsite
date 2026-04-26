@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.supabase.co https://cdn.jsdelivr.net https://free.timeanddate.com https://www.youtube.com https://*.youtube.com; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline'; connect-src 'self' blob: https://*.supabase.co https://ajax.googleapis.com https://cdn.jsdelivr.net; frame-src 'self' https://www.youtube.com https://*.youtube.com https://free.timeanddate.com;">
+    <title>wip shit xdxd</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="style999.css">
+        <style>
+    /* Optional: Removes any default border around the link */
+        .image-link {
+            border: none;
+            outline: none;
+            display: inline-block;
+        }
+        
+        .image-link img {
+            display: block;
+            border: none;
+        }
+      /* Optional: Makes the viewer a decent size */
+model-viewer {
+  /* 1. Control the size here (Lower this % to make it smaller) */
+  width: 30%; 
+  
+  /* 2. Keeps it from getting huge on big monitors */
+  max-width: 300px; 
+
+  /* 3. Your specific ratio */
+  aspect-ratio: 0.7 / 1; 
+
+  /* 4. Required for aspect-ratio to work */
+  height: auto; 
+
+  /* Background settings */
+  background-image: url('bg.png');
+  background-size: cover;
+  background-position: center;
+}
+    </style>
+</head>
+<body>
+
+<main class="main-frame">
+    <header class="banner">
+        <img src="abanner.png" alt="Banner Image">
+    </header>
+
+    <div class="content-wrapper">
+        <aside class="left-sidebar">
+<h2 style="text-align: center;">About Me</h2>
+<div style="height:150px; width:270px; solid #fff; overflow:auto; background-color: rgba(10, 10, 10, 0.5); color:white; text-align:center; padding:10px;">
+  Hi! FOR THOSE WONDERING, my name is not bruce, that's what they call me online, my real name is bruno, I am kind of young since my birthday is in november.. supposedly i'm supposed to be 13 but i am 12?? Well, anyways, about myself, i don't really watch movies, i'm just an internet user and prefer talking with online friends and play videogames, if you havent already noticed i play ROBLOX (common sense... DUH o_O) and one of my favourite type of games is shooter, 1 vs all, survival or zombie games, SPECIALLY the ones based off real games like CoD Zombies or Left 4 Dead, either micheal zombies (which i'm new to) or zombie uprising (my FAVOURITE!), i have to say i am OBSESSED with firearms for no apparent reason, but still am scared of potentially hurting someone with it if i ever got one, i have this crush.. her name starts with H and she is really REALLY cute, i always think about her everytime i go anywhere, but i remind myself i am a loser that no girl would like even tho my friends call me handsome as a boy, NOTE! i am gonna move to 8th grade later around in september, YES i am a minor, if your just here to harass me get the FUCK out. My hobbies is mainly drawing and playing ROBLOX, and by playing ROBLOX i mean either playing with friends or alone. I have 3 pets! One is a chihuahua, a brown dog and my SO LOVED BUNNY NAMED BONBON! Shes so loyal to me, she follows me everywhere, her bday is on october, pretty cool huh? Well, that's all about me for today, SEE YA!
+</div>
+            <div class="widgets" style="text-align: center; margin-bottom: 20px;">
+            <div class="container">
+                <h2>Message Board</h2>
+                <div class="input-box">
+                    <div id="replyIndicator" class="replying-to-indicator">Replying... <span onclick="cancelReply()" style="color:red; cursor:pointer;">[X]</span></div>
+                    <textarea id="mainInput" placeholder="Write a message..."></textarea>
+                    
+                    <div class="emoji-bar">
+                        <button class="emoji-btn" onclick="addEmoji(':smile:')"><img src="smile.png" alt="smile"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':wowzers:')"><img src="wowzers.png" alt="wowzers"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':cool:')"><img src="cool.png" alt="cool"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':catface:')"><img src="catface.png" alt="catface"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':wink:')"><img src="wink.png" alt="wink"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':crying:')"><img src="crying.png" alt="crying"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':shocked:')"><img src="shocked.png" alt="shocked"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':mad:')"><img src="mad.png" alt="mad"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':sleep:')"><img src="sleep.png" alt="sleep"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':bigeyes:')"><img src="bigeyes.png" alt="bigeyes"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':tongue:')"><img src="tongue.png" alt="tongue"></button>
+                        <button class="emoji-btn" onclick="addEmoji(':nerd:')"><img src="nerd.png" alt="nerd"></button>
+                    </div>
+                    
+                    <button id="postBtn" onclick="submitMessage()">Post Message</button>
+                </div>
+                <div id="board">Loading messages...</div>
+            </div>
+        </aside>
+        
+        <section class="center-content">
+                        <img src="website.png" alt="Sample" style="width:100%; border-radius: 8px; margin: 10px 0;">
+            <p></p>
+            <div style="display: flex; align-items: center; gap: 20px;">
+  <div>
+    <p>I've been trying to remake my old OLD website "xdoomz.neocities.org" in a way better way which is using github and vercel, if you STILL want to go to the old website you can do so, but it won't be as good and it will be old and cringy. WARNING! This site is still WIP, so you might find bugs and glitches everywhere, note that this site will take a long time to be built so just be patient.</p>
+  </div>
+  <img src="rendershadow.png" alt="Sample" style="width: 45%; border-radius: 8px;">
+</div>
+                                    <img src="construction.gif" alt="Sample" style="width:100%; border-radius: 8px; margin: 10px 0;">
+<div class="side-by-side">
+    <model-viewer 
+        src="cutztorx.glb" 
+        alt="cutztorx"
+        camera-controls 
+        auto-rotate 
+        shadow-intensity="1">
+    </model-viewer>
+
+    <div class="bio-text">
+        <h1>cutztorx</h1>
+        <p>This is my current ROBLOX avatar.</p>
+       <p>FUN FACT: This avatar has been living for around 5.4 years or longer, this avatar was first seen in an old account of mines, it's style comes from the 2017 hungry dino trend. I do not think of changing this avatar as it is quite too iconic.</p>
+                <p>If you want to visit my profile, click below!</p>
+        <a href="path-to-your-file.zip" class="image-link">
+        <img 
+            src="btn.png" 
+            alt="Clickable Button"
+            onmouseover="this.src='btnhover.png'" 
+            onmouseout="this.src='btn.png'"
+        >
+    </a>
+    </div>
+</div>
+        </section>
+
+        <aside class="right-sidebar">
+                <h2>SONG OF THE DAY!</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Owj7k1R5Kxw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+                            <h2>Socials</h2>
+
+        </aside>
+    </div>
+
+    <section class="bottom-section">
+        <hr>
+        <h2>Bottom Section</h2>
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold; margin-right: 65px;">
+  Home
+</a>
+
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold; margin-right: 65px;">
+  Art
+</a>
+
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold; margin-right: 65px;">
+  Photos
+</a>
+
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold; margin-right: 65px;">
+  Animations
+</a>
+
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold;">
+  Games
+</a>
+    </section>
+
+    <footer class="site-footer">
+        Coded With LAZYNESS • 2024-2026 © cutztorx • Brought to you by Neocities
+    </footer>
+</main>
+
+
+
+</body>
+</html>
