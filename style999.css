@@ -24,6 +24,25 @@ p {
     min-height: 100vh;
     margin: 0;
 }
+.side-by-side {
+    display: flex;          /* Forces children to sit in a row */
+    flex-direction: row;    /* Explicitly sets horizontal alignment */
+    align-items: center;    /* Centers the text vertically relative to the model */
+    gap: 15px;             /* Adds space between the model and the text */
+    width: 100%;
+}
+
+.bio-text {
+    flex: 1;                /* Allows text to take up remaining space */
+    font-family: monospace; /* Matches the vibe in your screenshot */
+    color: white;           /* Adjust color based on your background */
+}
+
+model-viewer {
+    flex-shrink: 0;         /* Prevents the model from getting squished */
+    width: 250px;           /* Set this to whatever size you want */
+    height: 350px;
+}
 
 .main-frame {
     background: rgba(0, 0, 0, 0.95);
