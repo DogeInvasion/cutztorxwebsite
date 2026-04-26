@@ -34,7 +34,8 @@ p {
 
 .bio-text {
     flex: 1;                /* Allows text to take up remaining space */
-    font-family: monospace; /* Matches the vibe in your screenshot */
+    font-family: monospace;
+    text-align: left; /* Matches the vibe in your screenshot */
     color: white;           /* Adjust color based on your background */
 }
 
