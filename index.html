@@ -123,26 +123,6 @@ model-viewer {
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/Owj7k1R5Kxw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
-            <div id="visit-counter" style="color: white; font-weight: bold; text-align: center;"></div>
-
-<script>
-  // 1. Get the current visit count from the browser's memory
-  let visits = localStorage.getItem('visitCount');
-
-  // 2. Check if this is the first time
-  if (!visits) {
-    // It's the first visit
-    visits = 1;
-    document.getElementById('visit-counter').innerHTML = "Welcome back, this is your first visit to this website!";
-  } else {
-    // It's a return visit, so add 1 to the number
-    visits = parseInt(visits) + 1;
-    document.getElementById('visit-counter').innerHTML = "You have visited this page " + visits + " times!";
-  }
-
-  // 3. Save the new number back into the browser's memory
-  localStorage.setItem('visitCount', visits);
-</script>
                             <h2>Socials</h2>
             <a href="https://metalboyz.newgrounds.com/">
   <img src="newgrounds.gif" alt="Description" style="width: 149px; border-radius: 8px;">
@@ -165,21 +145,25 @@ model-viewer {
     <section class="bottom-section">
         <hr>
         <h2>Bottom Section</h2>
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold; margin-right: 20px;">
+  Home
+</a>
+
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold; margin-right: 20px;">
+  Art
+</a>
+
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold; margin-right: 20px;">
+  Photos
+</a>
+
+<a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold; margin-right: 20px;">
+  Animations
+</a>
+
 <a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold;">
-    Home
-  </a>
-        <a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold;">
-    Art
-  </a>
-        <a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold;">
-    Photos
-  </a>
-        <a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold;">
-    Animations
-  </a>
-        <a href="YOUR_LINK" style="text-decoration: none !important; border: none !important; color: white !important; font-weight: bold;">
-    Games
-  </a>
+  Games
+</a>
     </section>
 
     <footer class="site-footer">
