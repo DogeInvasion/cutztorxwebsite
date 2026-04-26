@@ -27,7 +27,7 @@ p {
 .side-by-side {
     display: flex;          /* Forces children to sit in a row */
     flex-direction: row;    /* Explicitly sets horizontal alignment */
-    align-items: center;    /* Centers the text vertically relative to the model */
+    align-items: left;    /* Centers the text vertically relative to the model */
     gap: 15px;             /* Adds space between the model and the text */
     width: 100%;
 }
